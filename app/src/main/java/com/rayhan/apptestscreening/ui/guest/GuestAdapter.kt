@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rayhan.apptestscreening.databinding.GuideItemBinding
 
-class GuestAdapter(private val list: MutableList<GuideModel>) :
+class GuestAdapter(private val list: MutableList<GuestModel>) :
     RecyclerView.Adapter<GuestAdapter.ViewHolder>() {
 
     lateinit var listener: GuestRecyclerViewClickListener
@@ -14,7 +14,7 @@ class GuestAdapter(private val list: MutableList<GuideModel>) :
     inner class ViewHolder(private val itemBinding: GuideItemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
 
-        fun bind(data: GuideModel) {
+        fun bind(data: GuestModel) {
             with(itemBinding) {
                 tvGuide.text = data.name
 

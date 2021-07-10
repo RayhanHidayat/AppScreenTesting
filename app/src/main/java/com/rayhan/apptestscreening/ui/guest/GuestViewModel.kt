@@ -15,15 +15,15 @@ class GuestViewModel(application: Application) : AndroidViewModel(application) {
     private val tag = "GuideViewModel"
     private val client = ApiConfig.getApiService(application)
 
-    private val _guestData = MutableLiveData<List<GuideModel>>()
+    private val _guestData = MutableLiveData<List<GuestModel>>()
 
-    val guestData: LiveData<List<GuideModel>> = _guestData
+    val guestData: LiveData<List<GuestModel>> = _guestData
 
     fun getGuideData() {
-        client.getAllData().enqueue(object : Callback<List<GuideModel>> {
+        client.getAllData().enqueue(object : Callback<List<GuestModel>> {
             override fun onResponse(
-                call: Call<List<GuideModel>>,
-                response: Response<List<GuideModel>>
+                call: Call<List<GuestModel>>,
+                response: Response<List<GuestModel>>
             ) {
                 Log.i(tag, "onResponse $response")
                 if (response.isSuccessful) {
@@ -45,7 +45,7 @@ class GuestViewModel(application: Application) : AndroidViewModel(application) {
                 }
             }
 
-            override fun onFailure(call: Call<List<GuideModel>>, t: Throwable) {
+            override fun onFailure(call: Call<List<GuestModel>>, t: Throwable) {
                 Log.e(tag, "onFailure $t")
             }
 

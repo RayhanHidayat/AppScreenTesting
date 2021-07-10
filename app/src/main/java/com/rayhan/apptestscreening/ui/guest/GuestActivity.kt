@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.rayhan.apptestscreening.databinding.ActivityGuideBinding
 
-class GuideActivity : AppCompatActivity(), GuestRecyclerViewClickListener {
+class GuestActivity : AppCompatActivity(), GuestRecyclerViewClickListener {
 
     private lateinit var binding: ActivityGuideBinding
     private val guestViewModel by viewModels<GuestViewModel>()
@@ -24,16 +24,16 @@ class GuideActivity : AppCompatActivity(), GuestRecyclerViewClickListener {
         })
     }
 
-    private fun renderAllData(list: List<GuideModel>) {
+    private fun renderAllData(list: List<GuestModel>) {
         binding.run {
-            rvEvent.layoutManager = GridLayoutManager(this@GuideActivity, 2)
+            rvEvent.layoutManager = GridLayoutManager(this@GuestActivity, 2)
             val adapter = GuestAdapter(list.toMutableList())
             rvEvent.adapter = adapter
-            adapter.listener = this@GuideActivity
+            adapter.listener = this@GuestActivity
         }
     }
 
-    override fun onItemClicked(data: GuideModel) {
+    override fun onItemClicked(data: GuestModel) {
 
     }
 }

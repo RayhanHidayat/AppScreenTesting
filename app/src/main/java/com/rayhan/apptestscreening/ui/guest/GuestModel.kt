@@ -3,7 +3,7 @@ package com.rayhan.apptestscreening.ui.guest
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class GuideModel(
+data class GuestModel(
     @SerializedName("image")
     var image: String?,
     @SerializedName("id")

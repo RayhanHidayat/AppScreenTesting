@@ -1,5 +1,5 @@
 package com.rayhan.apptestscreening.ui.guest
 
 interface GuestRecyclerViewClickListener {
-    fun onItemClicked(data: GuideModel)
+    fun onItemClicked(data: GuestModel)
 }

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTestScreening">
-        <activity android:name=".ui.guest.GuideActivity"></activity>
+        <activity android:name=".ui.guest.GuestActivity"></activity>
         <activity android:name=".ui.event.EventActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.home.HomeActivity">
