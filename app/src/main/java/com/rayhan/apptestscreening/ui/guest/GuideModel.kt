@@ -5,7 +5,7 @@ import java.util.*
 
 data class GuideModel(
     @SerializedName("image")
-    val image: String?,
+    var image: String?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")

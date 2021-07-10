@@ -34,6 +34,12 @@ class GuestViewModel(application: Application) : AndroidViewModel(application) {
                         Log.w(tag, "Did not receive valid response")
                         return
                     }
+
+                    val data = ImageUrlList.generateAllImage()
+                    for (i in data.indices) {
+                        _guestData.value!![i].image = data[i]
+                    }
+
                 } else {
                     Log.w(tag, "invalid response in onResponse")
                 }
