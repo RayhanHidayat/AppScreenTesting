@@ -1,8 +1,8 @@
 package com.rayhan.apptestscreening.ui.guest
 
 data class GuideModel(
-    val image: Int?,
+    val image: String?,
     val id: Int,
-    val nama: String,
+    val name: String,
     val dateBirth: String
 )

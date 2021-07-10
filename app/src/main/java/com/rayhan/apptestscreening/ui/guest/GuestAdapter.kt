@@ -1,20 +1,37 @@
 package com.rayhan.apptestscreening.ui.guest
 
-import android.content.Context
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import com.rayhan.apptestscreening.R
+import androidx.recyclerview.widget.RecyclerView
+import com.rayhan.apptestscreening.databinding.GuideItemBinding
 
-class GuestAdapter(var context: Context, var list: ArrayList<GuideModel>): BaseAdapter() {
+class GuestAdapter(private val list: MutableList<GuideModel>) :
+    RecyclerView.Adapter<GuestAdapter.ViewHolder>() {
 
-    override fun getCount(): Int = list.size
+    lateinit var listener: GuestRecyclerViewClickListener
 
-    override fun getItem(position: Int): Any = list[position]
+    inner class ViewHolder(private val itemBinding: GuideItemBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
 
-    override fun getItemId(position: Int): Long = position.toLong()
+        fun bind(data: GuideModel) {
+            with(itemBinding) {
+                tvGuide.text = data.name
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-
+            }
+        }
     }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
+        GuideItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    )
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(list[position])
+
+        holder.itemView.setOnClickListener {
+            listener.onItemClicked(list[position])
+        }
+    }
+
+    override fun getItemCount(): Int = list.size
 }
