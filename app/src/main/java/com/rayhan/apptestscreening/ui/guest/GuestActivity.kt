@@ -1,6 +1,7 @@
 package com.rayhan.apptestscreening.ui.guest
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,6 +19,8 @@ class GuestActivity : AppCompatActivity(), GuestRecyclerViewClickListener {
         title = "Guest"
 
         guestViewModel.getGuideData()
+
+        val data = guestViewModel.guestData.value
 
         guestViewModel.guestData.observe(this, {
             renderAllData(it)
