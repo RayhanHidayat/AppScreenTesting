@@ -60,14 +60,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val tgl = displayDateFormat.format(dataGuest!!.birthDate)
             val hariLahir = tgl.toString().slice(0..1).toInt()
 
-            if (hariLahir % 2 == 0 && hariLahir % 3 == 0)
-                Toast.makeText(this, "iOS", Toast.LENGTH_SHORT).show()
-            else if (hariLahir % 3 == 0)
-                Toast.makeText(this, "android", Toast.LENGTH_SHORT).show()
-            else if (hariLahir % 2 == 0)
-                Toast.makeText(this, "blackberry", Toast.LENGTH_SHORT).show()
-            else
-                Toast.makeText(this, "feature phone", Toast.LENGTH_SHORT).show()
+            cariKelipatan(hariLahir)
 
         }
     }
@@ -83,5 +76,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 activityResult.launch(intent)
             }
         }
+    }
+
+    private fun cariKelipatan(hariLahir: Int) {
+
+        if (hariLahir % 2 == 0 && hariLahir % 3 == 0)
+            Toast.makeText(this, "iOS", Toast.LENGTH_SHORT).show()
+        else if (hariLahir % 3 == 0)
+            Toast.makeText(this, "android", Toast.LENGTH_SHORT).show()
+        else if (hariLahir % 2 == 0)
+            Toast.makeText(this, "blackberry", Toast.LENGTH_SHORT).show()
+        else
+            Toast.makeText(this, "feature phone", Toast.LENGTH_SHORT).show()
+
     }
 }
