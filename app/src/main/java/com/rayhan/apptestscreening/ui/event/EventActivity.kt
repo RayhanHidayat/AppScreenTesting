@@ -1,5 +1,7 @@
 package com.rayhan.apptestscreening.ui.event
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +34,8 @@ class EventActivity : AppCompatActivity(), EventRecyclerViewClickListener {
     }
 
     override fun onItemClicked(data: EventModel) {
-
+        val intent = Intent().putExtra("event", data)
+        setResult(111, intent)
+        finish()
     }
 }

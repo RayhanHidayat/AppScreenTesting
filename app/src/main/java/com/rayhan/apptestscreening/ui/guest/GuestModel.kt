@@ -1,8 +1,11 @@
 package com.rayhan.apptestscreening.ui.guest
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
+@Parcelize
 data class GuestModel(
     @SerializedName("image")
     var image: String?,
@@ -12,4 +15,4 @@ data class GuestModel(
     val name: String,
     @SerializedName("birthdate")
     val birthDate: Date
-)
+) : Parcelable
