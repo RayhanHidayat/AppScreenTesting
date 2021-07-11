@@ -10,7 +10,7 @@ class ApiConfig {
         private const val BASE_URL = "http://www.mocky.io/v2/"
 
         fun getApiService(context: Context): ApiService {
-            val gson = GsonBuilder().setDateFormat("dd-MM-yyyy").create()
+            val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create()
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))

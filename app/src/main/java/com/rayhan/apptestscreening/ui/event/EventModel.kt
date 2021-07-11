@@ -8,5 +8,5 @@ import java.util.*
 data class EventModel(
     val image: String,
     val nameEvent: String,
-    val date: Date
+    val date: String
 ) : Parcelable

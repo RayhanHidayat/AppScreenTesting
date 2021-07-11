@@ -17,7 +17,7 @@ class EventAdapter(private val list: MutableList<EventModel>) :
         fun bind(data: EventModel) {
             with(eventItemBinding) {
                 tvEvent.text = data.nameEvent
-                tvDateEvent.text = data.date.toString()
+                tvDateEvent.text = data.date
 
                 Glide.with(itemView.context).load(data.image).into(imgEvent)
             }

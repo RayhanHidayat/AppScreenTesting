@@ -11,6 +11,8 @@ import com.rayhan.apptestscreening.ui.event.EventActivity
 import com.rayhan.apptestscreening.ui.event.EventModel
 import com.rayhan.apptestscreening.ui.guest.GuestActivity
 import com.rayhan.apptestscreening.ui.guest.GuestModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -24,13 +26,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val activityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == 111) {
+            if (it.resultCode == 111)
                 dataEvent = it.data?.getParcelableExtra("event")
-                Log.e("activityResult", "data = $dataEvent")
-            } else if (it.resultCode == 112) {
+            else if (it.resultCode == 112)
                 dataGuest = it.data?.getParcelableExtra("guest")
-                Log.e("activityResult", "data = $dataGuest")
-            }
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,9 +54,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (dataEvent != null) binding.btnEvent.text = dataEvent!!.nameEvent
 
         if (dataGuest != null) {
+            val displayDateFormat = SimpleDateFormat("dd MMM yyyy", Locale.US)
+
             binding.btnGuest.text = dataGuest!!.name
-
-
+            val tgl = displayDateFormat.format(dataGuest!!.birthDate)
+            Log.e("tgl lahir", "tgl lahir: $tgl")
         }
     }
 
