@@ -2,8 +2,8 @@ package com.rayhan.apptestscreening.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.rayhan.apptestscreening.databinding.ActivityMainBinding
@@ -58,7 +58,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.btnGuest.text = dataGuest!!.name
             val tgl = displayDateFormat.format(dataGuest!!.birthDate)
-            Log.e("tgl lahir", "tgl lahir: $tgl")
+            val hariLahir = tgl.toString().slice(0..1).toInt()
+
+            if (hariLahir % 2 == 0 && hariLahir % 3 == 0)
+                Toast.makeText(this, "iOS", Toast.LENGTH_SHORT).show()
+            else if (hariLahir % 3 == 0)
+                Toast.makeText(this, "android", Toast.LENGTH_SHORT).show()
+            else if (hariLahir % 2 == 0)
+                Toast.makeText(this, "blackberry", Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(this, "feature phone", Toast.LENGTH_SHORT).show()
+
         }
     }
 
