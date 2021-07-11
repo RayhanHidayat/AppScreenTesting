@@ -25,7 +25,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         when (v) {
             binding.btnNext -> {
                 val intent = Intent(this, MainActivity::class.java)
-                val name = binding.etNama.editText?.text.toString()
+                val name = binding.etNama.text.toString()
 
                 alertDialog(intent, name)
             }

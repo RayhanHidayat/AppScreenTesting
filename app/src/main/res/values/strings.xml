@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">App Test Screening</string>
     <string name="masukkan_nama_anda">Masukkan nama Anda</string>
-    <string name="next">next</string>
+    <string name="next">SELESAI</string>
     <string name="nama">Nama :</string>
     <string name="pilih_event">Pilih Event</string>
     <string name="pilih_guest">Pilih Guest</string>
+    <string name="selamat_datang">Selamat Datang!</string>
 </resources>
