@@ -2,6 +2,7 @@ package com.rayhan.apptestscreening.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -18,15 +19,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var dataEvent: EventModel?
-    private lateinit var dataGuest: GuestModel?
+    private var dataEvent: EventModel? = null
+    private var dataGuest: GuestModel? = null
 
     private val activityResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == 111) {
                 dataEvent = it.data?.getParcelableExtra("event")
+                Log.e("activityResult", "data = $dataEvent")
             } else if (it.resultCode == 112) {
-                dataGuest = it.data?.getParcelableExtra("guide")
+                dataGuest = it.data?.getParcelableExtra("guest")
+                Log.e("activityResult", "data = $dataGuest")
             }
         }
 
@@ -44,10 +47,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnEvent.setOnClickListener(this)
         binding.btnGuest.setOnClickListener(this)
 
-        if (dataEvent != null) {
-            binding.btnEvent.text = dataEvent!!.nameEvent
-        } else if (dataGuest != null) {
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (dataEvent != null) binding.btnEvent.text = dataEvent!!.nameEvent
+
+        if (dataGuest != null) {
             binding.btnGuest.text = dataGuest!!.name
+
+
         }
     }
 
