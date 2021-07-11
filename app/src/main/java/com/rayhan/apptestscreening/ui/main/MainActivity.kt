@@ -59,9 +59,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnGuest.text = dataGuest!!.name
             val tgl = displayDateFormat.format(dataGuest!!.birthDate)
             val hariLahir = tgl.toString().slice(0..1).toInt()
+            @Suppress("DEPRECATION") val blnLahir = dataGuest!!.birthDate.month
 
             cariKelipatan(hariLahir)
-
+            cariAngkaPrima(blnLahir)
         }
     }
 
@@ -89,5 +90,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         else
             Toast.makeText(this, "feature phone", Toast.LENGTH_SHORT).show()
 
+    }
+
+    private fun cariAngkaPrima(blnLahir: Int) {
+        val angka = blnLahir + 1
+        var prima = true
+
+        if (angka == 1)
+            prima = false
+        else
+            for (i in 2..angka / 2) {
+                if (angka % i == 0) {
+                    prima = false
+                    break
+                }
+            }
+
+        if (prima)
+            Toast.makeText(this, "Bilangan Prima", Toast.LENGTH_SHORT).show()
+        else
+            Toast.makeText(this, "Bukan Bilangan Prima", Toast.LENGTH_SHORT).show()
     }
 }

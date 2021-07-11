@@ -48,7 +48,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         val normalText = text.filter { !it.isWhitespace() }
         val reversedText = normalText.reversed()
 
-        if (normalText.contentEquals(reversedText)) {
+        if (normalText.contentEquals(reversedText) && !normalText.contentEquals("")) {
             return "isPalindrome"
         }
 
