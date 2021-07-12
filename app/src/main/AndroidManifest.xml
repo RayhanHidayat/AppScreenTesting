@@ -15,7 +15,9 @@
         <activity android:name=".ui.guest.GuestActivity"></activity>
         <activity android:name=".ui.event.EventActivity" />
         <activity android:name=".ui.main.MainActivity" />
-        <activity android:name=".ui.home.HomeActivity">
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
